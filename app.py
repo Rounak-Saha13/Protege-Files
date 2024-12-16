@@ -63,7 +63,9 @@ app.secret_key = 'math_learning_platform_secret_key'
 
 # Initialize the Math Learning Platform
 try:
-    ontology_path = r"D:\\TRIMPLIN_STATS\\protege files\\math_tutor_project\\Math Learning Platform\\math_tutoring_ontology.owl"
+    # Set relative path to the ontology file
+    base_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory of the current script
+    ontology_path = os.path.join(base_dir, "math_tutoring_ontology.owl")  # Relative path to ontology file
     math_platform = MathLearningPlatform(ontology_path)
 except Exception as e:
     print(f"Failed to initialize Math Learning Platform: {e}")
